@@ -17,33 +17,40 @@
     </div>
   </div>
   <!-- Add contact form -->
-  <pre>{{ContactName}}</pre>
+  <pre>{{contact | json}}</pre>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <form>
           <div class="mb-2">
-            <input name="ContactName" [(ngModel)]="ContactName" type="text" placeholder="Name" class="form-control" />
+            <input name="Id" [(ngModel)]="contact.id" type="text" placeholder="Contact-ID" class="form-control" />
+          </div>
+          <div class="mb-2">
+            <input name="ContactName" [(ngModel)]="contact.name" type="text" placeholder="Name" class="form-control" />
             <!-- name is only needed if ngModel is inside a form -->
           </div>
           <div class="mb-2">
-            <input type="text" placeholder="Photo-url" class="form-control" />
+            <input name="photo" [(ngModel)]="contact.photo" type="text" placeholder="Photo-url" class="form-control" />
           </div>
           <div class="mb-2">
-            <input type="text" placeholder="Email ID" class="form-control" />
+            <input name="Email" [(ngModel)]="contact.email" type="text" placeholder="Email ID" class="form-control" />
           </div>
           <div class="mb-2">
             <input
+            name="Mobile" [(ngModel)]="contact.mobile"
               type="text"
               placeholder="Mobile number"
               class="form-control"
             />
           </div>
           <div class="mb-2">
-            <input type="text" placeholder="Title" class="form-control" />
+            <input name="Company" [(ngModel)]="contact.company" type="text" placeholder="Company" class="form-control" />
           </div>
           <div class="mb-2">
-            <select name="" id="" class="form-control ">
+            <input name="title" [(ngModel)]="contact.title" type="text" placeholder="Title" class="form-control" />
+          </div>
+          <div class="mb-2">
+            <select name="groupId" [(ngModel)]="contact.groupId"  id="" class="form-control ">
               <option value="" selected hidden disabled>Select a group</option>
               <option value="{{group.id}}" *ngFor="let group of allGroups">{{group.name}}</option>
             </select>
@@ -56,7 +63,7 @@
       </div>
       <div class="col-md-4">
         <img
-          src="https://www.pngitem.com/pimgs/m/391-3918613_personal-service-platform-person-icon-circle-png-transparent.png"
+          [src]="contact.photo"
           alt=""
           class="Contact-img"
         />

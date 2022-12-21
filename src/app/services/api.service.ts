@@ -30,7 +30,12 @@ export class ApiService {
     return this.http.get(`${this.groupUrl}`)
   }
   addContact(contactBody:any){
-    this.http.post(this.baseUrl,contactBody)
+   return this.http.post(this.baseUrl,contactBody)
+  }
+
+  deleteContact(contactID:any){
+    return this.http.delete(`${this.baseUrl}/${contactID}`)
+
   }
 }
 
