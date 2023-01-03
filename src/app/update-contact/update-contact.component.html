@@ -16,41 +16,41 @@
         </p>
       </div>
     </div>
+    <pre>{{contact|json}}</pre>
     <!-- Add contact form -->
     <div class="container">
       <div class="row">
         <div class="col-md-4">
           <form>
             <div class="mb-2">
-              <input type="text" placeholder="Name" class="form-control" />
+              <input [(ngModel)]="contact.name" name="Cname" type="text" placeholder="Name" class="form-control" />
             </div>
             <div class="mb-2">
-              <input type="text" placeholder="Photo-url" class="form-control" />
+              <input type="text" [(ngModel)]="contact.photo" name="photo" placeholder="Photo-url" class="form-control" />
             </div>
             <div class="mb-2">
-              <input type="text" placeholder="Email ID" class="form-control" />
+              <input type="text" [(ngModel)]="contact.email" name="Email"placeholder="Email ID" class="form-control" />
             </div>
             <div class="mb-2">
               <input
                 type="text"
                 placeholder="Mobile number"
                 class="form-control"
+                [(ngModel)]="contact.mobile" name="number"
               />
             </div>
             <div class="mb-2">
-              <input type="text" placeholder="Title" class="form-control" />
+              <input type="text" placeholder="Title" [(ngModel)]="contact.title" name="title" class="form-control" />
             </div>
             <div class="mb-2">
-              <select name="" id="" class="form-control">
+              <select name="Group" id="" class="form-control" [(ngModel)]="contact.groupId">
                 <option value="" selected hidden disabled>Select a group</option>
-                <option value="">Family</option>
-                <option value="">Friends</option>
-                <option value="">Work</option>
+                <option value="group.id" *ngFor="let group of groups">{{group.name}}</option>
               </select>
             </div>
             <div class="mb-2">
-              <button class="btn btn-primary">update</button>
-              <button class="btn btn-warning ms-3" routerLink="/">Back</button>
+              <button class="btn btn-primary" (click)="updateContact()">update</button>
+              <button class="btn btn-warn-ing ms-3" routerLink="/">Back</button>
             </div>
           </form>
         </div>
